@@ -1,6 +1,10 @@
 name: Submission
 on:
   workflow_call:
+    inputs:
+      merge-pin:
+        required: true
+        type: string
 
 jobs:
   build_job:
@@ -10,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ inputs.merge-pin }}
 
       - uses: lukka/get-cmake@v.3.23.2
 

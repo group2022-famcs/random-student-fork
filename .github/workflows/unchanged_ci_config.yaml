@@ -1,28 +1,11 @@
-name: Looking for roadmen, gangsters and proper naughty boys
+name: Submission
 
 on:
   pull_request_target:
 
 jobs:
-  ci_config_check:
-    name: Compare submission workflow config with canonical one
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          path: pull_request
-
-      - uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          path: base
-
-      - run: cmp pull_request/.github/workflows/submission.yaml base/.github/workflows/submission.yaml
-
-      - uses: andymckay/labeler@1.0.4
-        with:
-          add-labels: "trusted"
-
-  call_workflow_submission:
+  call_submission_workflow:
+    name: "Run"
     uses: group2022-famcs/playground-for-private-tests/.github/workflows/submission.yaml@master
+    with:
+      merge-pin: ${{ github.event.pull_request.head.sha }}
