@@ -5,7 +5,7 @@ on:
 
 jobs:
   call_submission_workflow:
-    name: "Run"
+    name: Run
     uses: group2022-famcs/playground-for-private-tests/.github/workflows/submission.yaml@master
     with:
-      merge-pin: ${{ github.event.pull_request.head.sha }}
+      submission_ref: ${{ github.event.pull_request.head.sha }}
