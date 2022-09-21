@@ -9,7 +9,7 @@ on:
 jobs:
   build_job:
     name: configure & build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
@@ -36,7 +36,7 @@ jobs:
 
   test_job:
     name: test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build_job
 
     steps:
