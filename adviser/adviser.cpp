@@ -1,3 +1,3 @@
 #include "adviser.h"
 
-std::string Adviser::Advice() const { return "Buy Bitcoin!"; }
+std::string Adviser::Advice() const { return "Buy Dogecoin!"; }
